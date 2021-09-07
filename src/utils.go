@@ -8,8 +8,8 @@ import (
 )
 
 func getPort() string {
-	port := os.Getenv("PORT") 
-	if (port == "") {
+	port := os.Getenv("PORT")
+	if port == "" {
 		port = "8765"
 	}
 	return port
