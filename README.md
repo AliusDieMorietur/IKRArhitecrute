@@ -2,7 +2,7 @@
 
 # Usage
 
-- Format `go fmt ./src/*`
-- Test `go test ./tests/*`
-- Start - `go run ./src/*`
-- Build - `go build -o server ./src/*`
+- Format - `go fmt ./...`
+- Test - `go test -v ./tests/*`
+- Start - `go run ./main.go`
+- Build - `go build -o server ./main.go`

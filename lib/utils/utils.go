@@ -1,14 +1,10 @@
-package main
+package utils
 
 import (
 	"os"
 )
 
-type Package struct {
-	Time string `json:"time"`
-}
-
-func getPort() string {
+func GetPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8765"

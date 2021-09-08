@@ -1,4 +1,4 @@
-package main
+package routes
 
 import (
 	"encoding/json"
@@ -6,9 +6,13 @@ import (
 	"time"
 )
 
-var END_POINTS = map[string]func() string{
+var ROUTES = map[string]func() string{
 	"/":     func() string { return "/ - Help\n/time - Show current time" },
 	"/time": getTimeJSON,
+}
+
+type Package struct {
+	Time string `json:"time"`
 }
 
 func getTimeJSON() string {
