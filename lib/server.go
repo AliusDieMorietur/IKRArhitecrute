@@ -9,16 +9,17 @@ import (
 )
 
 type Routes map[string]func() string
+type Handler func(resW http.ResponseWriter, req *http.Request)
 
-func handle(routes Routes) func(resW http.ResponseWriter, req *http.Request) {
+func handle(routes Routes) Handler {
 	return func(resW http.ResponseWriter, req *http.Request) {
 		log.Println("url", req.URL.Path)
 		handleRoute := routes[req.URL.Path]
-		respose := "Not found"
+		response := "Not found"
 		if handleRoute != nil {
-			respose = handleRoute()
+			response = handleRoute()
 		}
-		fmt.Fprintf(resW, respose)
+		fmt.Fprintf(resW, response)
 	}
 }
 
