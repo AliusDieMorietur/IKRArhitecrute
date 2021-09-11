@@ -16,7 +16,7 @@ type Package struct {
 }
 
 func getTimeJSON() string {
-	time, err := json.Marshal(Package{Time: time.Now().Format(time.RFC1123)})
+	time, err := json.Marshal(Package{Time: time.Now().Format(time.RFC3339)})
 	if err != nil {
 		log.Fatalln(err)
 	}
