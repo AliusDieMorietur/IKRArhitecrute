@@ -17,7 +17,7 @@ var ROUTES = map[string]func() string{
 
 func rootHandler() string { return "/ - Help\n/time - Show current time" }
 func getTimeJSON() string {
-	time, err := json.Marshal(Package{Time: time.Now().Format(time.RFC1123)})
+	time, err := json.Marshal(Package{Time: time.Now().Format(time.RFC3339)})
 	if err != nil {
 		log.Fatalln(err)
 	}
