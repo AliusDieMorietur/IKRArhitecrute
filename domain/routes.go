@@ -11,11 +11,13 @@ type Package struct {
 }
 
 var ROUTES = map[string]func() string{
-	"/":     rootHandler,
-	"/time": getTimeJSON,
+	"/":     RouteRoot,
+	"/time": RouteTime,
 }
 
-func rootHandler() string { return "/ - Help\n/time - Show current time" }
+func RouteRoot() string { return "/ - Help\n/time - Show current time" }
+func RouteTime() string { return getTimeJSON() }
+
 func getTimeJSON() string {
 	time, err := json.Marshal(Package{Time: time.Now().Format(time.RFC3339)})
 	if err != nil {
